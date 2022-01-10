@@ -7,9 +7,6 @@ const fileCache = localForage.createInstance({
   name: 'filecache'
 });
 
-(async () => {
-  await fileCache.setItem('color', 'red')
-})()
 
 export const unpkgPathPlugin = () => {
   return {
@@ -32,9 +29,7 @@ export const unpkgPathPlugin = () => {
           namespace: 'a',
           path: `https://unpkg.com/${args.path}`
         }
-        // if (args.path === 'tiny-test-pkg') {
-        //   return { path: 'https://unpkg.com/tiny-test-pkg@1.0.0/index.js', namespace: 'a' }
-        // }
+
       });
 
       build.onLoad({ filter: /.*/ }, async (args: any) => {
@@ -49,13 +44,26 @@ export const unpkgPathPlugin = () => {
             `,
           };
         }
+
+        const cachedResult = await fileCache.getItem<esbuild.OnLoadResult>(
+          args.path
+        );
+
+
+        if (cachedResult) {
+          return cachedResult;
+        }
         const { data, request } = await axios.get(args.path)
 
-        return {
+        const result: esbuild.OnLoadResult = {
           loader: 'jsx',
           contents: data,
           resolveDir: new URL('./', request.responseURL).pathname
         }
+
+        await fileCache.setItem(args.path, result);
+
+        return result;
 
       });
     },
