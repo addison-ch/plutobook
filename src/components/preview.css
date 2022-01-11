@@ -1,15 +1,15 @@
-.iframe-wrapper {
+.preview-wrapper {
     position: relative;
     height: 100%;
     flex-grow: 1;
-}
-
-.iframe-wrapper iframe {
+  }
+  
+  .preview-wrapper iframe {
     height: 100%;
     width: 100%;
- 
-}
-.react-draggable-transparent-selection .iframe-wrapper:after {
+  }
+  
+  body .preview-wrapper:after {
     content: '';
     position: absolute;
     top: 0;
@@ -17,4 +17,5 @@
     bottom: 0;
     left: 0;
     opacity: 0;
-}
+  }
+  
