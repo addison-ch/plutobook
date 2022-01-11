@@ -2,7 +2,7 @@ import { useState } from 'react';
 import CodeEditor from './code-editor';
 import Preview from './preview';
 import bundle from '../bundler';
-
+import Resizable from './resizable';
 
 const CodeCell = () => {
 
@@ -15,17 +15,17 @@ const CodeCell = () => {
         // iframe.current.contentWindow.postMessage(result.outputFiles[0].text, '*')
     }
 
-    return <div>
-        <CodeEditor initialValue="console.log('Hey there!')"
-            onChange={(value) => setInput(value)} />
-
-        <div>
-            <button onClick={onClick}> Submit
-            </button>
-        </div>
-
-        <Preview code={code} />
-    </div>
+    return (
+        <Resizable direction="vertical">
+            <div style={{ height: '100%', display: 'flex', flexDirection: 'row' }}>
+                <Resizable direction="horizontal">
+                    <CodeEditor initialValue="console.log('Hey there!')"
+                        onChange={(value) => setInput(value)} />
+                </Resizable>
+                <Preview code={code} />
+            </div>
+        </Resizable>
+    )
 }
 
 
