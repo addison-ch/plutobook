@@ -7,12 +7,17 @@ import Resizable from './resizable';
 const CodeCell = () => {
 
     const [code, setCode] = useState('');
+    const [err, setErr] = useState('');
     const [input, setInput] = useState('');
 
     useEffect(() => {
         const timer = setTimeout(async () => {
             const output = await bundle(input);
-            setCode(output)
+            if (output) {
+                setCode(output.code)
+                setErr(output.err)
+            }
+
         }, 1000)
 
         return () => {
@@ -20,11 +25,7 @@ const CodeCell = () => {
         }
     }, [input])
 
-    const onClick = async () => {
-        const output = await bundle(input);
-        setCode(output);
-        // iframe.current.contentWindow.postMessage(result.outputFiles[0].text, '*')
-    }
+    
 
     return (
         <Resizable direction="vertical">
@@ -33,7 +34,7 @@ const CodeCell = () => {
                     <CodeEditor initialValue="console.log('Hey there!')"
                         onChange={(value) => setInput(value)} />
                 </Resizable>
-                <Preview code={code} />
+                <Preview code={code} bundlingStatus={err}/>
             </div>
         </Resizable>
     )
