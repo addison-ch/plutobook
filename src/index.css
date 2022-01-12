@@ -1,7 +1,9 @@
 html {
     background-image: url('https://cdna.artstation.com/p/assets/images/images/031/960/392/large/meht-solar-pixels-copy.jpg?1605087102');
+ 
     background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
+  background-attachment: fixed;
 }
