@@ -1,1 +1,2 @@
-const a = 1;
+export * from './store';
+export * from './reducers';
