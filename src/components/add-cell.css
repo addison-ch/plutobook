@@ -3,7 +3,9 @@
     opacity:0;
     transition: opacity 0.7s;
 }
-
+.add-cell.force-visible {
+    opacity: 1;
+}
 .add-cell:hover {
     opacity: 1.0
 }
@@ -26,3 +28,4 @@
 .add-cell .add-buttons button {
     margin: 0 35px;
 }
+
