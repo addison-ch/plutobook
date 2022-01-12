@@ -21,7 +21,9 @@ const bundle = async (rawCode: string) => {
             define: {
                 'process.env.NODE_ENV': '"production"',
                 global: 'window'
-            }
+            },
+            jsxFactory: '_React.createElement',
+            jsxFragment: '_React.Fragment'
         })
         return {
             code: result.outputFiles[0].text,
@@ -29,7 +31,7 @@ const bundle = async (rawCode: string) => {
         }
     } catch (err: unknown) {
         if (err instanceof Error) {
-            return {code: '', err: err.message}
+            return { code: '', err: err.message }
         }
         else {
             console.log(err)
