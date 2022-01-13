@@ -11,7 +11,7 @@
 - Your code is rendered instantly in built in `<iframe />` preview windows
 - Special built in `show(replace_me)` function to display items onto the preview window (supports React components, JSX, HTML elements, JS variables)
 - Beautiful user-interface, utilizing Monaco Editor (the same one VSCode uses!) as a code editor
-- Interconnected code between different shells! Your variables defined in one cell can be accessed by any other.
+- Interconnected code between different cells! Your variables defined in one cell can be accessed by any other.
 
 
 
