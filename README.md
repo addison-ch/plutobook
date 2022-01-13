@@ -1,4 +1,5 @@
 # 🚀 PLUTOBOOK
+[![npm version](https://badge.fury.io/js/plutobook.svg)](https://badge.fury.io/js/plutobook)
 
 ### This is a browser-based interactive code-editing notebook that supports both front-end web code (JS/JSX/HTML) and markdown for convenient code documentation.
 
