@@ -1,1 +1,0 @@
-[{"content":"import React from 'react';\r\nimport ReactDOM from 'react-dom';\r\n\r\nfunction App() {\r\n  const greeting = 'Hello Function Component!';\r\n\r\n  return <h1>{greeting}</h1>;\r\n}\r\n\r\n","type":"code","id":"e3pw8"},{"content":"Se!\n","type":"text","id":"booeb"},{"content":"ReactDOM.render(<App />, document.querySelector(\"#root\"))","type":"code","id":"rj5bw"}]
