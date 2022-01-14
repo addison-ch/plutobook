@@ -26,5 +26,4 @@ Notes: Files are by default served to a port of 4005, you can change this by add
 
 
 ## 🔭 Images
-... to be added
-
+![Demo](images/Animation.gif)
