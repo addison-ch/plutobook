@@ -27,3 +27,6 @@ Notes: Files are by default served to a port of 4005, you can change this by add
 
 ## 🔭 Images
 ![Demo](images/Animation.gif)
+
+
+Special thanks to codepen.io, codesandbox.io, and Stephen Grider's React/TS tutorial for inspiration
